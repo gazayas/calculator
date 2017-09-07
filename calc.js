@@ -33,35 +33,45 @@ function input() {
 
     console.log("Key code: " + key_code);
 
-    // Make into switch(){}
-    if (key_code > 47 && key_code < 58) {
-      button.value = key_code - 48;
-      button.className = "num";
-      button.id = "";
-    } else if (key_code == 13) {
-      button.id = "equals"
-    } else if (key_code == 8 || key_code == 67) {
-      button.id = "clear";
-    } else if (key_code == 188) {
-      button.className = "delete";
-      button.id = "delete";
-    } else if (key_code == 187) {
-      button.className = "operator";
-      button.id = "add";
-    } else if (key_code == 189) {
-      button.className = "operator";
-      button.id = "subtract";
-    } else if (key_code == 186 || key_code == 88) {
-      button.className = "operator";
-      button.id = "multiply";
-    } else if (key_code == 191) {
-      button.className = "operator";
-      button.id = "divide";
-    } else if (key_code == 190) {
-      button.id = "decimal";
-    } else if (key_code == 77) {
-      button.id = "memory";
-      button.class = "mem";
+    switch(key_code) {
+      case (key_code > 47 && key_code < 58):
+        button.value = key_code - 48;
+        button.className = "num";
+        button.id = "";
+        break;
+      case 13:
+        button.id = "equals";
+        break;
+      case (8 || 67):
+        button.id = "clear";
+        break;
+      case 188:
+        button.className = "delete";
+        button.id = "delete";
+        break;
+      case 187:
+        button.className = "operator";
+        button.id = "add";
+        break;
+      case 189:
+        button.className = "operator";
+        button.id = "subtract";
+        break;
+      case (186 || 88):
+        button.className = "operator";
+        button.id = "multiply";
+        break;
+      case 191:
+        button.className = "operator";
+        button.id = "divide";
+        break;
+      case 190:
+        button.id = "decimal";
+        break;
+      case 77:
+        button.id = "memory";
+        button.class = "mem";
+        break;
     }
   }
 
