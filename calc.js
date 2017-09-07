@@ -131,9 +131,13 @@ function input() {
       marker.innerHTML = "";
     }
   }
+
   $last_button_pressed = button.className;
 
-  // TODO: Bug - take focus off button after pressing it
+  // Take focus off button after pressing it.
+  // Without this, if you press a button and then go to type a key,
+  // the BUTTONS action will get triggered instead.
+  button.blur();
 }
 
 function calculate() {
@@ -167,7 +171,11 @@ document.onkeyup = function(e) {
   input();
 }
 
-// TODO: Limit the number of digits you can add. See if there is a javascript limit.
+function check_length() {
+  // TODO: Limit the number of digits you can add.
+  // when a num is called, if ($current_val.length <= 20) then dont concat.
+  // Do the same when a decimal point is called. Not a big deal for plus_minus, but consider it
+}
 
 // TODO: Bug - $need_to_renew isn't applied to all the necessary places,
 //             so sometimes digits can be added to numbers that they shouldnt be added to.
