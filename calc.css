@@ -1,0 +1,25 @@
+#calculator {
+  width: 50%;
+  margin: 0px auto;
+  padding: 4px;
+}
+
+#screen {
+  height: 7%;
+  border: 1px blue solid;
+  margin-bottom: 4px;
+  padding: 4px;
+}
+
+.line {
+  width: 80%;
+  margin: 0px auto;
+}
+
+.operator {
+  float: right;
+}
+
+#equals {
+  margin-top: 4px;
+}
