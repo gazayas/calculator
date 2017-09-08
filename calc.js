@@ -146,6 +146,7 @@ function input() {
         $screen.innerHTML = "";
         var marker = document.getElementById('memory_marker');
         marker.innerHTML = "M";
+        $prev_val = "";
       }
     } else if (button.id == "memory_clear") {
       $memory = "";
