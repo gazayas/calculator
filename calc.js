@@ -95,7 +95,7 @@ function input() {
     $screen.innerHTML += button.value;
     $current_val = $screen.innerHTML;
   } else if (button.className.match(/operator/)){
-    button.style.background = "black";
+    button.style.background = "black"; // TODO: doesnt happen on keyboard press. get element and 実装してください
 
     if ($last_button_pressed.match(/num/) && $prev_val != "") {
       console.log($last_button_pressed)
