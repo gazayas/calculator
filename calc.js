@@ -14,11 +14,12 @@ window.onload = function () {
   }
 
   // Set value for all number buttons
-  var num_counter = 1;
+  var nums = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
+  var x = 0;
   for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i].className == "num") {
-      buttons[i].value = num_counter < 10 ? num_counter : 0;
-      num_counter++;
+    if (buttons[i].className.match(/num/)) {
+      buttons[i].value = nums[x];
+      x++;
     }
   }
 }
@@ -33,16 +34,19 @@ function input() {
 
     console.log("Key code: " + key_code);
 
+    if (key_code > 47 && key_code < 58) {
+      button.value = key_code - 48;
+      button.className = "num";
+      button.id = "";
+    }
+
     switch(key_code) {
-      case (key_code > 47 && key_code < 58):
-        button.value = key_code - 48;
-        button.className = "num";
-        button.id = "";
-        break;
       case 13:
         button.id = "equals";
         break;
-      case (8 || 67):
+      case 8:
+        // Same as 67
+      case 67:
         button.id = "clear";
         break;
       case 188:
@@ -57,7 +61,8 @@ function input() {
         button.className = "operator";
         button.id = "subtract";
         break;
-      case (186 || 88):
+      case 222:
+      case 88:
         button.className = "operator";
         button.id = "multiply";
         break;
@@ -80,14 +85,15 @@ function input() {
     $need_to_renew = false;
   }
 
-  if(button.className == "num") {
+  if(button.className.match(/num/)) {
     console.log("number call");
     $screen.innerHTML += button.value;
     $current_val = $screen.innerHTML;
     // console.log("Current value: " + $current_val);
     // console.log("Previous value: " + $prev_val);
-  } else if (button.className == "operator"){
-    if ($last_button_pressed == "num" && $prev_val != "") {
+  } else if (button.className.match(/operator/)){
+    if ($last_button_pressed.match(/num/) && $prev_val != "") {
+      console.log($last_button_pressed)
       calculate();
       $prev_val = $current_val;
       $need_to_renew = true;
@@ -125,7 +131,7 @@ function input() {
     $current_val.splice(-1, 1);
     $current_val = $current_val.join('');
     $screen.innerHTML = $current_val;
-  } else if (button.className == "mem") {
+  } else if (button.className.match(/mem/)) {
     if (button.id == "memory") {
       $current_val = $memory;
       $screen.innerHTML = $current_val;
@@ -142,7 +148,8 @@ function input() {
     }
   }
 
-  $last_button_pressed = button.className;
+  $last_button_pressed = button.className.split(' ').pop();
+  console.log($last_button_pressed);
 
   // Take focus off button after pressing it.
   // Without this, if you press a button and then go to type a key,
@@ -154,8 +161,11 @@ function calculate() {
   $need_to_renew = true;
 
   // Cast values to integers
+  console.log("prev val: " + $prev_val);
   $current_val = Number($current_val);
   $prev_val = Number($prev_val);
+
+  console.log($current_val + $operator + $prev_val);
 
   switch($operator) {
     case "add":

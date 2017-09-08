@@ -3,48 +3,52 @@
     <title>Calc</title>
     <script src="./calc.js"></script>
     <link rel="stylesheet" href="calc.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
 
   <body>
+  <div id="wrapper">
     <div id="calculator">
-      <div id="screen"></div>
+      <div id="screen">
+      </div>
       <div id="keys">
         <div class="line">
-          <button id="clear" class="clear">C</button>
-          <button id="delete" class="delete">&lt;</button><!-- Escape key for "<" -->
-          <button id="memory" class="mem">M</button>
-          <button id="memory_plus" class="mem">M+</button>
-          <button id="memory_clear" class="mem">MC</button>
           <span id="memory_marker"></span>
+          <button id="memory" class="btn btn-secondary mem">M</button>
+          <button id="memory_plus" class="btn btn-secondary mem">M+</button>
+          <button id="memory_clear" class="btn btn-secondary mem">MC</button>
+          <button id="divide" class="btn btn-primary operator">/</button>
         </div>
         <div class="line">
-          <button id="one" class="num">1</button>
-          <button id="two" class="num">2</button>
-          <button id="three" class="num">3</button>
-          <button id="add" class="operator">+</button>
+          <button id="seven" class="btn btn-secondary num">7</button>
+          <button id="eight" class="btn btn-secondary num">8</button>
+          <button id="nine" class="btn btn-secondary num">9</button>
+          <button id="multiply" class="btn btn-primary operator">x</button>
         </div>
         <div class="line">
-          <button id="four" class="num">4</button>
-          <button id="five" class="num">5</button>
-          <button id="six" class="num">6</button>
-          <button id="subtract" class="operator">-</button>
+          <button id="four" class="btn btn-secondary num">4</button>
+          <button id="five" class="btn btn-secondary num">5</button>
+          <button id="six" class="btn btn-secondary num">6</button>
+          <button id="add" class="btn btn-primary operator">+</button>
         </div>
         <div class="line">
-          <button id="seven" class="num">7</button>
-          <button id="eight" class="num">8</button>
-          <button id="nine" class="num">9</button>
-          <button id="multiply" class="operator">x</button>
+          <button id="one" class="btn btn-secondary num">1</button>
+          <button id="two" class="btn btn-secondary num">2</button>
+          <button id="three" class="btn btn-secondary num">3</button>
+          <button id="subtract" class="btn btn-primary operator">-</button>
         </div>
         <div class="line">
-          <button id="zero" class="num">0</button>
-          <button id="decimal">.</button>
-          <button id="plus_minus">+/-</button>
-          <button id="divide" class="operator">/</button>
+          <button id="zero" class="btn btn-secondary num">0</button>
+          <button id="decimal" class="btn btn-secondary decimal">.</button>
+          <button id="clear" class="btn btn-secondary clear">C</button>
+          <button id="equals" class="btn btn-primary equals">=</button>
         </div>
         <div class="line">
-          <button id="equals" class="equals">=</button>
+          <button id="plus_minus" class="btn btn-secondary plus_minus">+&#47;-</button>
+          <!-- button id="delete" class="delete">&lt;</button--><!-- Escape key for "<" -->
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>

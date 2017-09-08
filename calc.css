@@ -1,25 +1,34 @@
 #calculator {
-  width: 50%;
+  position: fixed;
+  min-width: 25%;
+  
+  text-align: center;
   margin: 0px auto;
+  margin-top: 30px;
+
+  margin-left: 35%;
+  
   padding: 4px;
+  background: #000;
 }
 
 #screen {
-  height: 7%;
-  border: 1px blue solid;
-  margin-bottom: 4px;
+  position: relative;
+  height: 40px;
+  margin: 10px;
   padding: 4px;
+
+  background: #FFF;
+  font-family: "Arial Black", Gadget, sans-serif;
+  text-align: right;
 }
 
-.line {
-  width: 80%;
-  margin: 0px auto;
+.btn {
+  margin: 3px;
+  min-width: 60px;
 }
 
-.operator {
-  float: right;
-}
-
-#equals {
-  margin-top: 4px;
+#plus_minus {
+  float: left;
+  margin-left: 20px;
 }
