@@ -199,13 +199,5 @@ document.onkeyup = function(e) {
   input();
 }
 
-function check_length() {
-  // TODO: Limit the number of digits you can add.
-  // when a num is called, if ($current_val.length <= 20) then dont concat.
-  // Do the same when a decimal point is called. Not a big deal for plus_minus, but consider it
-}
-
-// TODO: Bug - $need_to_renew isn't applied to all the necessary places,
-//             so sometimes digits can be added to numbers that they shouldnt be added to.
-
-// TODO: Add modulo operator
+/* TODO: Bug - $need_to_renew isn't applied to all the necessary places,
+ so sometimes digits can be added to numbers that they shouldnt be added to. */
