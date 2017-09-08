@@ -3,7 +3,7 @@ window.onload = function () {
   $prev_val = "";
   $operator = "";
   $need_to_renew = false;
-  $screen = document.getElementById('screen');
+  $screen = document.getElementById('output'); // should probz change this
   $last_button_pressed = "";
 
   var buttons = document.getElementsByTagName('button');
@@ -25,6 +25,11 @@ window.onload = function () {
 }
 
 function input() {
+  // reset operator from black background if it was pressed last
+  if ($last_button_pressed == "operator") {
+    $last_button_pressed_html.style.background = "";
+  }
+
   var button = window.event.target;
   var key_code = window.event.keyCode;
 
@@ -85,13 +90,13 @@ function input() {
     $need_to_renew = false;
   }
 
-  if(button.className.match(/num/)) {
-    console.log("number call");
+  // Limit 入力 length to 20
+  if(button.className.match(/num/) && $screen.innerHTML.length < 20) {
     $screen.innerHTML += button.value;
     $current_val = $screen.innerHTML;
-    // console.log("Current value: " + $current_val);
-    // console.log("Previous value: " + $prev_val);
   } else if (button.className.match(/operator/)){
+    button.style.background = "black";
+
     if ($last_button_pressed.match(/num/) && $prev_val != "") {
       console.log($last_button_pressed)
       calculate();
@@ -136,11 +141,12 @@ function input() {
       $current_val = $memory;
       $screen.innerHTML = $current_val;
     } else if (button.id == "memory_plus") {
-      $memory = $current_val;
-      $screen.innerHTML = "";
-
-      var marker = document.getElementById('memory_marker');
-      marker.innerHTML = "M";
+      if ($current_val != "" && $current_val != ".") {
+        $memory = $current_val;
+        $screen.innerHTML = "";
+        var marker = document.getElementById('memory_marker');
+        marker.innerHTML = "M";
+      }
     } else if (button.id == "memory_clear") {
       $memory = "";
       var marker = document.getElementById('memory_marker');
@@ -149,6 +155,7 @@ function input() {
   }
 
   $last_button_pressed = button.className.split(' ').pop();
+  $last_button_pressed_html = button;
   console.log($last_button_pressed);
 
   // Take focus off button after pressing it.

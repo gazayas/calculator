@@ -5,10 +5,11 @@
   text-align: center;
   margin: 0px auto;
   margin-top: 30px;
-
   margin-left: 35%;
-  
+
   padding: 4px;
+  padding: 10px;
+
   background: #000;
 }
 
@@ -20,12 +21,23 @@
 
   background: #FFF;
   font-family: "Arial Black", Gadget, sans-serif;
-  text-align: right;
+}
+
+#output {
+  float: right;
+}
+
+#memory_marker {
+  float: left;
 }
 
 .btn {
   margin: 3px;
   min-width: 60px;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  border: 1px white solid;
 }
 
 #plus_minus {
